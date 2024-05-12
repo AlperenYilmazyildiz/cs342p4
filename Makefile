@@ -1,7 +1,13 @@
-all:  fatmod
+CC := gcc
+CFLAGS := -g -Wall
+
+TARGETS := fatmod
+
+# Make sure that 'all' is the first target
+all: $(TARGETS)
 
 fatmod: fatmod.c
-	gcc -Wall -g -o fatmod fatmod.c
+	$(CC) $(CFLAGS) -o fatmod fatmod.c -lrt -lpthread
 
-clean: 	
-	rm -fr *~ fatmod
+clean:
+	rm -f *~ fatmod
